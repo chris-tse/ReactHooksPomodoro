@@ -148,4 +148,5 @@ const ControlButton = styled.button`
     border: 0;
     color: white;
     font-size: 20px;
+    cursor: pointer;
 `
