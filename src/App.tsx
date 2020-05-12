@@ -12,7 +12,7 @@ function App() {
     const [active, setActive] = useState(false)
     const [goToBreak, setGoToBreak] = useState(true)
 
-    useInterval(tick, active ? 10 : null)
+    useInterval(tick, active ? 1000 : null)
 
     function startTimer() {
         setActive(true)
