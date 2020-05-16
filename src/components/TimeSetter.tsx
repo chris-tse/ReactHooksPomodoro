@@ -1,31 +1,10 @@
 import React from 'react'
+import CenterFlex from './layout/CenterFlex'
 import styled from 'styled-components'
 
-export const CenterFlex = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
-
-const TimeSetterHeading = styled.h2`
-    font-size: 20px;
-    font-weight: normal;
-    color: #333;
-    text-align: center;
-    margin: 0;
-    margin-bottom: 20px;
-`
-
-const TimeSetterInput = styled.input`
-    text-align: center;
-    border: 0;
-    font-size: 30px;
-    max-width: 100px;
-    color: #333;
-`
 const buttonColor = '#777777'
 const disabledButtonColor = '#dddddd'
-const StyledButton = styled.button`
+const Button = styled.button`
     color: ${props => (props.disabled ? disabledButtonColor : buttonColor)};
     background-color: transparent;
     border: 1px solid ${props => (props.disabled ? disabledButtonColor : buttonColor)};
@@ -38,6 +17,23 @@ const StyledButton = styled.button`
 
 const TimeSetterContainer = styled.div`
     padding: 10px;
+
+    input {
+        text-align: center;
+        border: 0;
+        font-size: 30px;
+        max-width: 100px;
+        color: #333;
+    }
+
+    h2 {
+        font-size: 20px;
+        font-weight: normal;
+        color: #333;
+        text-align: center;
+        margin: 0;
+        margin-bottom: 20px;
+    }
 `
 
 interface TimeSetterProps {
@@ -51,15 +47,15 @@ interface TimeSetterProps {
 function TimeSetter({ disabled, name, length, increment, decrement }: TimeSetterProps) {
     return (
         <TimeSetterContainer>
-            <TimeSetterHeading>{name}</TimeSetterHeading>
+            <h2>{name}</h2>
             <CenterFlex>
-                <StyledButton disabled={disabled} onClick={decrement}>
+                <Button disabled={disabled} onClick={decrement}>
                     -
-                </StyledButton>
-                <TimeSetterInput type="text" value={length} readOnly />
-                <StyledButton disabled={disabled} onClick={increment}>
+                </Button>
+                <input type="text" value={length} readOnly />
+                <Button disabled={disabled} onClick={increment}>
                     +
-                </StyledButton>
+                </Button>
             </CenterFlex>
         </TimeSetterContainer>
     )
